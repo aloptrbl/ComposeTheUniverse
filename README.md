@@ -1,7 +1,7 @@
 # Compose The Universe
 
 <p align="center">
-  <img width="200" height="200" src="https://github.com/aloptrbl/ComposeTheUniverse/blob/main/assets/icon.png">
+  <img width="400" height="400" src="https://github.com/aloptrbl/ComposeTheUniverse/blob/main/assets/icon.png">
 </p>
 
 
