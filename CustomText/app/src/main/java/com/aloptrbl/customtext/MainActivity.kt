@@ -24,6 +24,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PaintingStyle.Companion.Stroke
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.toArgb
@@ -130,8 +131,14 @@ fun OutlineText(name: String) {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun CustomFontText(name: String) {
-    Text(name, fontSize = 30.sp, color = Color.White, fontFamily = FontFamily(
+    Text(name, fontSize = 30.sp, color = Color.Black, fontFamily = FontFamily(
         Font(R.font.dotine, FontWeight.Light)
+    ), style = TextStyle.Default.copy(
+        shadow = Shadow(
+            color = Color.Gray.copy(0.5F),
+            offset = Offset(5.0f, 10.0f),
+            blurRadius = 3f
+        )
     ))
 }
 
