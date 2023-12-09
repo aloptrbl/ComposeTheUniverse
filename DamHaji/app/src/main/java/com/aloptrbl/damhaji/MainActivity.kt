@@ -203,16 +203,18 @@ fun Test() {
                                                     offsetX.animateTo(getCenterOffset(  Offset(
                                                         offsetX.value.toFloat(),
                                                         offsetY.value.toFloat()
-                                                    ), offsets).x, animationSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessMedium))
+                                                    ), offsets).x, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMedium))
                                                     offsetY.animateTo(  getCenterOffset(  Offset(
                                                         offsetX.value.toFloat(),
                                                         offsetY.value.toFloat()
-                                                    ), offsets).y, animationSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessMedium))
+                                                    ), offsets).y, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMedium))
+                                                    previousOffsetX.value = offsetX.value
+                                                    previousOffsetY.value = offsetY.value
                                                 }
                                             } else {
                                                 coroutineScope.launch {
-                                                    offsetX.animateTo(previousOffsetX.value, animationSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessMedium))
-                                                    offsetY.animateTo(previousOffsetY.value, animationSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessMedium))
+                                                    offsetX.animateTo(previousOffsetX.value, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMedium))
+                                                    offsetY.animateTo(previousOffsetY.value, animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessMedium))
                                                 }
                                             }
                                         }
