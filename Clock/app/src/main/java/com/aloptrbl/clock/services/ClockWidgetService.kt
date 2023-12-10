@@ -21,6 +21,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.glance.appwidget.updateAll
 import com.aloptrbl.clock.R
+import com.aloptrbl.clock.ui.AnalogClockWidget
 import com.aloptrbl.clock.ui.DigitalClockWidget
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -147,6 +148,7 @@ class ClockWidgetService: Service() {
             CoroutineScope(Dispatchers.Default).launch {
                 withContext(Dispatchers.Main) {
                     DigitalClockWidget().updateAll(context)
+                    AnalogClockWidget().updateAll(context)
                 }
             }
             handler.postDelayed(this, 1000L)
