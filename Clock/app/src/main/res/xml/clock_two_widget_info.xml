@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/app_name"
     android:minHeight="51dp"
-    android:minWidth="554dp"
+    android:minWidth="51dp"
     android:targetCellWidth="3"
     android:targetCellHeight="2"
     android:previewImage="@drawable/ic_launcher_background"

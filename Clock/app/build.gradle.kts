@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
     // For Glance support
     implementation("androidx.glance:glance:1.0.0")
     // For AppWidgets support
