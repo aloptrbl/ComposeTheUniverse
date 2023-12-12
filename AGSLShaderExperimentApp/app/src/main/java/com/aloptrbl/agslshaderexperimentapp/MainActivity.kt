@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                   HorizontalTabView(shader, shader2, shader3, gradientShader)
+                   HorizontalTabView(shader, shader2, shader3, gradientShader, this)
                 }
             }
         }

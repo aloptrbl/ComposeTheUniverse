@@ -1,5 +1,6 @@
 package com.aloptrbl.agslshaderexperimentapp.ui.components
 
+import android.content.Context
 import android.graphics.RuntimeShader
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -25,7 +26,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenFour
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenOne
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenThree
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenTwo
@@ -37,26 +40,27 @@ fun HorizontalTabView(
     shader: RuntimeShader,
     shader2: RuntimeShader,
     shader3: RuntimeShader,
-    gradientShader: RuntimeShader
+    gradientShader: RuntimeShader,
+    context: Context
 ) {
     // Remember the pager state
     val pagerState = rememberPagerState()
     val coroutineScope = rememberCoroutineScope()
+    val tabTitles = listOf("Introduction", "Basic", "Gradient", "Image Manipulation")
+    var selectedTabIndex by remember { mutableStateOf(0) }
 
     Column() {
         // TabRow with three tabs
-        val tabTitles = listOf("Introduction", "Basic", "Gradient")
-        var selectedTabIndex by remember { mutableStateOf(0) }
         ScrollableTabRow(
             modifier = Modifier.fillMaxWidth(),
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndex = pagerState.currentPage,
             indicator = { tabPositions ->
-                val tabWidth = tabPositions[selectedTabIndex].width
+                val tabWidth = tabPositions[pagerState.currentPage].width
                 val indicatorWidth = 50.dp
                 val offset = (tabWidth - indicatorWidth) / 3
                 Box(
                     modifier = Modifier
-                        .tabIndicatorOffset(tabPositions[selectedTabIndex])
+                        .tabIndicatorOffset(tabPositions[pagerState.currentPage])
                         .height(5.dp)
                         .clip(RoundedCornerShape(50.dp))
                         .background(color = Color.Blue)
@@ -81,16 +85,17 @@ fun HorizontalTabView(
         }
 
         HorizontalPager(
-            pageCount = 3,
+            pageCount = tabTitles.size,
             state = pagerState,
             // Add padding to the pager
             contentPadding = PaddingValues(horizontal = 16.dp)
         ) { page ->
             // Display content based on the current page
             when (page) {
-                0 -> ScreenOne()
+                0 -> {ScreenOne()}
                 1 -> ScreenTwo(shader, shader2, shader3)
                 2 -> ScreenThree(gradientShader)
+                3 -> ScreenFour(context.resources)
             }
         }
     }

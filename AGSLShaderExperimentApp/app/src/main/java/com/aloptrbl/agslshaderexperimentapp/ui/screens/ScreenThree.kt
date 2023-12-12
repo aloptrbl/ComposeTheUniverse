@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -49,7 +50,7 @@ fun ScreenThree(shader: RuntimeShader) {
                 "\n" +
                 "return half4(fragCoord.x / 1080, fragCoord.y / 2340, 0.75, 1);  \n" +
                 "\n" +
-                " } ", color = Color.Black, fontStyle = FontStyle.Italic
+                " } ", color = MaterialTheme.colorScheme.primary, fontStyle = FontStyle.Italic
         )
         Text("In the context of the shader code half4(fragCoord.x/1080, fragCoord.y/2340, 1, 1), the color output will be determined by the position of the pixel (fragCoord) being processed:\n" +
                 "\n" +
