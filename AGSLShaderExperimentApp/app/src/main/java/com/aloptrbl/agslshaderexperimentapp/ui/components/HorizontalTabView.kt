@@ -28,8 +28,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenFive
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenFour
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenOne
+import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenSix
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenThree
 import com.aloptrbl.agslshaderexperimentapp.ui.screens.ScreenTwo
 import kotlinx.coroutines.launch
@@ -46,7 +48,7 @@ fun HorizontalTabView(
     // Remember the pager state
     val pagerState = rememberPagerState()
     val coroutineScope = rememberCoroutineScope()
-    val tabTitles = listOf("Introduction", "Basic", "Gradient", "Image Manipulation")
+    val tabTitles = listOf("Introduction", "Basic", "Gradient", "Image Manipulation", "Recap", "Advanced")
     var selectedTabIndex by remember { mutableStateOf(0) }
 
     Column() {
@@ -96,6 +98,8 @@ fun HorizontalTabView(
                 1 -> ScreenTwo(shader, shader2, shader3)
                 2 -> ScreenThree(gradientShader)
                 3 -> ScreenFour(context.resources)
+                4 -> ScreenFive()
+                5 -> ScreenSix(context.resources)
             }
         }
     }
